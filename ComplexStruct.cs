@@ -3,6 +3,17 @@ using System.IO;
 
 namespace ComplexLib
 {
+    public static class Ex
+    {
+        public static void WriteBin(this Complex c, string fileName)
+        {
+            using (BinaryWriter binaryWriter = new BinaryWriter(File.Create(fileName)))
+            {
+                binaryWriter.Write(c.Real);
+                binaryWriter.Write(c.Imaginary);
+            }
+        }
+    }
     public struct Complex : IFormattable, IEquatable<Complex>
     {
         /// <summary>
