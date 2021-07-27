@@ -130,12 +130,8 @@ namespace ComplexLib
         }
         public void WriteToFile(string fileName)
         {
-            BinaryWriter bw = new BinaryWriter(File.Create(fileName));
-            using (bw)
-            {
-                bw.Write(Real);
-                bw.Write(Imaginary);
-            }
+            using (BinaryWriter bw = new BinaryWriter(File.Create(fileName)))
+                bw.Write(this);
         }
         #region Переопределенные методы предков
         public override bool Equals(object obj) => base.Equals(obj);
